@@ -239,14 +239,6 @@
         </div>
     </div>
     
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
-        <div class="flex items-center">
-            <i data-lucide="check-circle" class="h-5 w-5 mr-2"></i>
-            <span id="toastMessage"></span>
-        </div>
-    </div>
-    
     <script>
         // Product data
         const csvData = `id,price,image,category,Name
@@ -338,7 +330,6 @@
                 console.log('Categories found:', categories);
             } catch (error) {
                 console.error('Error parsing CSV data:', error);
-                showToast('Error loading products. Please refresh the page.');
             }
         }
         
@@ -457,23 +448,6 @@ Could you please provide more details about this product?`;
             
             const whatsappUrl = `https://wa.me/+918866817360?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
-            
-            showToast('WhatsApp message prepared!');
-        }
-        
-        // Show toast notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            
-            toastMessage.textContent = message;
-            toast.classList.remove('translate-x-full');
-            toast.classList.add('translate-x-0');
-            
-            setTimeout(() => {
-                toast.classList.remove('translate-x-0');
-                toast.classList.add('translate-x-full');
-            }, 3000);
         }
         
         // Initialize the app
